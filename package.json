@@ -1,26 +1,29 @@
 {
-  "name": "vue-tsoa-template",
-  "version": "1.0.0",
-  "description": "This is a standard template for starting a web project with a vue frontend and a tsoa backend.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/polkel/vue-tsoa-template.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/polkel/vue-tsoa-template/issues"
-  },
-  "homepage": "https://github.com/polkel/vue-tsoa-template#readme",
-  "workspaces": [
-    "frontend",
-    "backend",
-    "shared"
-  ]
+    "name": "vue-tsoa-template",
+    "version": "1.0.0",
+    "description": "This is a standard template for starting a web project with a vue frontend and a tsoa backend.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/polkel/vue-tsoa-template.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/polkel/vue-tsoa-template/issues"
+    },
+    "homepage": "https://github.com/polkel/vue-tsoa-template#readme",
+    "workspaces": [
+        "frontend",
+        "backend",
+        "shared"
+    ],
+    "devDependencies": {
+        "prettier": "^3.9.6"
+    }
 }
