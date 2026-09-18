@@ -1,10 +1,14 @@
 import { Controller, Get, Route, SuccessResponse } from "tsoa"
 
+interface TestResponse {
+    message: string
+}
+
 @Route("test")
 export class TestController extends Controller {
     @Get("")
     @SuccessResponse(200)
-    public async test(): Promise<string> {
-        return "Test success!"
+    public async test(): Promise<TestResponse> {
+        return { message: "Test Success!" }
     }
 }

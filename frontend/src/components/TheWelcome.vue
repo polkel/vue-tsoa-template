@@ -5,11 +5,31 @@ import ToolingIcon from "./icons/IconTooling.vue"
 import EcosystemIcon from "./icons/IconEcosystem.vue"
 import CommunityIcon from "./icons/IconCommunity.vue"
 import SupportIcon from "./icons/IconSupport.vue"
+import { ref } from "vue"
 
 const openReadmeInEditor = () => fetch("/__open-in-editor?file=README.md")
+
+const resultString = ref<string | null>(null)
+
+const fetchResult = async () => {
+    const res = await fetch("http://localhost:8080/test", {
+        headers: { "Content-Type": "application/json" }
+    })
+    if (res.ok) {
+        resultString.value = (await res.json()).message
+    } else {
+        alert(res.status)
+    }
+}
 </script>
 
 <template>
+    <div>
+        <div>Click here to fetch</div>
+        <button @click="fetchResult">fetch</button>
+        <div>{{ resultString || "This is the result if we are successful" }}</div>
+    </div>
+
     <WelcomeItem>
         <template #icon>
             <DocumentationIcon />

@@ -4,6 +4,7 @@
     "description": "This is a standard template for starting a web project with a vue frontend and a tsoa backend.",
     "main": "index.js",
     "scripts": {
+        "dev": "npm run dev --workspace=frontend & npm run dev --workspace=backend & wait",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -24,6 +25,7 @@
         "shared"
     ],
     "devDependencies": {
+        "@types/cors": "^2.8.19",
         "prettier": "^3.9.6"
     }
 }
