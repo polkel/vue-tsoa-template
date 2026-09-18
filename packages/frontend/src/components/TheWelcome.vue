@@ -10,7 +10,7 @@ import { simpleFunc } from "@polkel/shared"
 
 const openReadmeInEditor = () => fetch("/__open-in-editor?file=README.md")
 
-const resultString = ref<string | null>(null)
+const resultString = ref<string | null>("doodoo")
 
 const fetchResult = async () => {
     const res = await fetch("http://localhost:8080/test", {

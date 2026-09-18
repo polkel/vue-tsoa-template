@@ -1,10 +1,11 @@
-import { Controller, Get, Route, SuccessResponse } from "tsoa"
+import { Controller, Get, Route, SuccessResponse, Tags } from "tsoa"
 
 interface TestResponse {
     message: string
 }
 
 @Route("test")
+@Tags("Test")
 export class TestController extends Controller {
     @Get("")
     @SuccessResponse(200)
