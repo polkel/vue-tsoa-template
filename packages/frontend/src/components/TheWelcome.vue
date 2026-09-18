@@ -6,6 +6,7 @@ import EcosystemIcon from "./icons/IconEcosystem.vue"
 import CommunityIcon from "./icons/IconCommunity.vue"
 import SupportIcon from "./icons/IconSupport.vue"
 import { ref } from "vue"
+import { simpleFunc } from "@polkel/shared"
 
 const openReadmeInEditor = () => fetch("/__open-in-editor?file=README.md")
 
@@ -17,6 +18,7 @@ const fetchResult = async () => {
     })
     if (res.ok) {
         resultString.value = (await res.json()).message
+        alert(simpleFunc())
     } else {
         alert(res.status)
     }
