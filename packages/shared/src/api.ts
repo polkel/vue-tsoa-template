@@ -7,7 +7,11 @@ export class Api {
     public otherTest: OtherTestApi
 
     constructor(config: ApiConfig) {
-        const apiConfig = new Configuration({ basePath: config.baseURL.toString() })
+        let basePath: string = config.baseURL.toString()
+        if (basePath[basePath.length - 1] === "/") {
+            basePath = basePath.slice(0, -1)
+        }
+        const apiConfig = new Configuration({ basePath })
 
         this.test = new TestApi(apiConfig)
         this.otherTest = new OtherTestApi(apiConfig)

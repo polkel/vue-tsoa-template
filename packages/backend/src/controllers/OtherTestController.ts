@@ -10,6 +10,12 @@ export class OtherTestController extends Controller {
     @Get("")
     @SuccessResponse(200)
     public async secondTest(): Promise<OtherTestResponse> {
-        return { message: "hello" }
+        return { message: "Hello poopoo guy" }
+    }
+
+    @Get("wow")
+    @SuccessResponse(200)
+    public async thirdTest(): Promise<OtherTestResponse> {
+        return { message: "Wow here we art" }
     }
 }
