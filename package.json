@@ -4,7 +4,7 @@
     "description": "This is a standard template for starting a web project with a vue frontend and a tsoa backend.",
     "main": "index.js",
     "scripts": {
-        "dev": "npm run dev --workspace=frontend & npm run dev --workspace=backend & wait",
+        "dev": "npm run dev --workspace=@polkel/frontend & npm run dev --workspace=@polkel/backend & wait",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -20,9 +20,7 @@
     },
     "homepage": "https://github.com/polkel/vue-tsoa-template#readme",
     "workspaces": [
-        "frontend",
-        "backend",
-        "shared"
+        "packages/*"
     ],
     "devDependencies": {
         "@types/cors": "^2.8.19",

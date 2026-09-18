@@ -1,5 +1,5 @@
 {
-    "name": "shared",
+    "name": "@polkel/shared",
     "version": "1.0.0",
     "description": "",
     "license": "ISC",
@@ -9,5 +9,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "typescript": "^6.0.3"
+    }
 }
