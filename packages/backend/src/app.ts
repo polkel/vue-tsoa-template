@@ -1,8 +1,8 @@
 import express, { json, urlencoded } from "express"
-import { RegisterRoutes } from "./routes"
+import { RegisterRoutes } from "./generated/tsoa/routes"
 import cors from "cors"
 import swaggerUi from "swagger-ui-express"
-import swaggerDoc from "../build/swagger.json"
+import swaggerDoc from "./generated/tsoa/swagger.json"
 
 export const app = express()
 
