@@ -4,7 +4,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --host",
         "build": "run-p type-check \"build-only {@}\" --",
         "preview": "vite preview",
         "build-only": "vite build",
@@ -16,8 +16,12 @@
     },
     "dependencies": {
         "@polkel/shared": "^1.0.0",
+        "@primeuix/themes": "^3.0.1",
         "@tailwindcss/vite": "^4.3.3",
+        "primeicons": "^8.0.1",
+        "primevue": "^4.5.5",
         "tailwindcss": "^4.3.3",
+        "tailwindcss-primeui": "^0.6.1",
         "vue": "^3.5.40",
         "vue-router": "^5.2.0"
     },

@@ -23,7 +23,12 @@ const fetchResult = async () => {
 <template>
     <div>
         <div>Click here to fetch</div>
-        <button @click="fetchResult">fetch</button>
+        <button
+            @click="fetchResult"
+            class="p-4 rounded-lg border-1 border-black hover:cursor-pointer hover:bg-gray-800"
+        >
+            fetch
+        </button>
         <div>{{ resultString || "This is the result if we are successful" }}</div>
     </div>
 
