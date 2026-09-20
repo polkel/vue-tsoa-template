@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
-INPUT_SPEC="$SCRIPT_DIR/../../build/swagger.json"
+INPUT_SPEC="$SCRIPT_DIR/../../src/generated/tsoa/swagger.json"
 OUTPUT_DIR="$SCRIPT_DIR/../../../shared/src/client"
 
 if [[ ! -f "$INPUT_SPEC" ]]; then
