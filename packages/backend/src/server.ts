@@ -1,6 +1,10 @@
 import { app } from "./app"
+import { config, initConfig } from "./config"
 
-const port = process.env.PORT || 8080
+initConfig()
+const cfg = config()
+
+const port = cfg.apiPort
 
 app.listen(port, () => {
     console.log(`Backend listening at http://localhost:${port}`)
