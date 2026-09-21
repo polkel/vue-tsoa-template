@@ -2,10 +2,12 @@ import { ResponseError } from "@polkel/shared/dist/client"
 import { useAsyncState, type UseAsyncStateOptions } from "@vueuse/core"
 import { reactive, ref, type MaybeRef, type Ref } from "vue"
 import { Api as BackendApiClient } from "@polkel/shared"
+import { config } from "@/config"
 
 class Api extends BackendApiClient {
     constructor() {
-        super({ baseURL: new URL(import.meta.env.VITE_API_URL) })
+        const cfg = config()
+        super({ baseURL: cfg.apiUrl })
     }
 }
 
