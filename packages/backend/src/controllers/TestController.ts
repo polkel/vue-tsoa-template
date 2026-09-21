@@ -27,6 +27,10 @@ export class TestController extends Controller {
         if (nameIndex >= NAMES.length) {
             throw new ServerHttpError({ message: "Index out of bounds." })
         }
+        const name = NAMES[nameIndex]
+        if (name === "Joe") {
+            throw new ClientHttpError({ message: "Joe not allowed." })
+        }
         return { name: NAMES[nameIndex]! }
     }
 

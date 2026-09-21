@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import TheWelcome from "../components/TheWelcome.vue"
+import { api, useAsyncCaller } from "@/lib/api.ts"
 import Button from "primevue/button"
-import { Api } from "@polkel/shared"
-import { useAsyncState } from "@vueuse/core"
-const api = new Api({ baseURL: new URL("http://localhost:8080") })
+import TheWelcome from "../components/TheWelcome.vue"
 
-const randomNameApi = useAsyncState(
+const randomNameApi = useAsyncCaller(
     async () => {
         return api.test.getRandomName()
     },
-    { name: "No name chosen yet" },
-    { immediate: false, resetOnExecute: false }
+    { name: "No name chosen yet" }
 )
 </script>
 
@@ -21,13 +18,17 @@ const randomNameApi = useAsyncState(
             class="p-4 flex flex-col gap-4 rounded-lg border-1 border-red-400 bg-yellow-200 text-black"
         >
             <div>Click here to get a random name</div>
-            <div>Name: {{ randomNameApi.state.value.name }}</div>
-            <div v-if="randomNameApi.error.value" class="text-red-600 text-sm">
-                There was an error with the request: {{ String(randomNameApi.error.value) }}
+            <div>Name: {{ randomNameApi.state.name }}</div>
+            <div v-if="randomNameApi.error" class="text-red-600 text-sm">
+                There was an error with the request: {{ randomNameApi.error.message }}
             </div>
-            <Button :disabled="!randomNameApi.isReady" @click="randomNameApi.execute()"
+            <Button :disabled="randomNameApi.isLoading" @click="randomNameApi.execute()"
                 >Get a name!</Button
             >
+            <div>
+                State of api helper
+                {{ `ready: ${randomNameApi.isReady}; loading: ${randomNameApi.isLoading}` }}
+            </div>
         </div>
 
         <div class="flex flex-col gap-4 text-black">
