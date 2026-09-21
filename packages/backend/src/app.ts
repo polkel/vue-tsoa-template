@@ -5,6 +5,7 @@ import swaggerUi from "swagger-ui-express"
 import swaggerDoc from "./generated/tsoa/swagger.json"
 import { pinoHttp } from "pino-http"
 import { logger } from "./lib/logger"
+import { errorHandler } from "./lib/errors"
 
 export const app = express()
 
@@ -30,3 +31,5 @@ app.use(
 app.use("/docs", ...swaggerUi.serveFiles(swaggerDoc), swaggerUi.setup(swaggerDoc))
 
 RegisterRoutes(app)
+
+app.use(errorHandler)
