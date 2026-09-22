@@ -2,7 +2,7 @@
     "name": "@polkel/shared",
     "version": "1.0.0",
     "description": "",
-    "license": "ISC",
+    "private": true,
     "author": "",
     "type": "module",
     "main": "./dist/index.js",
