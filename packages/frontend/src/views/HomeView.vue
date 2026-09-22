@@ -2,6 +2,7 @@
 import { api, useAsyncCaller } from "@/lib/api.ts"
 import Button from "primevue/button"
 import TheWelcome from "../components/TheWelcome.vue"
+import { isDarkMode, toggleDarkMode } from "@/lib/dark-mode.ts"
 
 const randomNameApi = useAsyncCaller(
     async () => {
@@ -40,6 +41,14 @@ const randomNameApi = useAsyncCaller(
         <div class="pt-4 flex flex-row gap-2 justify-center">
             <i class="pi pi-check pi-spin text-sm" />
             <i class="pi pi-times text-xl" />
+        </div>
+
+        <div
+            class="p-4 flex flex-col gap-4 items-center bg-primary hover:bg-primary-contrast rounded-xl text-muted-color-emphasis border-surface transition-colors"
+        >
+            <div>Let's toggle dark mode</div>
+            <div>Currently: {{ isDarkMode ? "dark mode" : "light mode" }}</div>
+            <Button @click="toggleDarkMode">Change theme</Button>
         </div>
     </main>
 </template>
