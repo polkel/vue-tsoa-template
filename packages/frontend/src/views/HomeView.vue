@@ -1,54 +1,82 @@
 <script setup lang="ts">
-import { api, useAsyncCaller } from "@/lib/api.ts"
-import Button from "primevue/button"
-import TheWelcome from "../components/TheWelcome.vue"
-import { isDarkMode, toggleDarkMode } from "@/lib/dark-mode.ts"
-
-const randomNameApi = useAsyncCaller(
-    async () => {
-        return api.test.getRandomName()
-    },
-    { name: "No name chosen yet" }
-)
+import Divider from "primevue/divider"
+import Card from "primevue/card"
+import Message from "primevue/message"
+import Fieldset from "primevue/fieldset"
 </script>
 
 <template>
-    <main>
-        <TheWelcome />
-        <div
-            class="p-4 flex flex-col gap-4 rounded-lg border-1 border-red-400 bg-yellow-200 text-black"
-        >
-            <div>Click here to get a random name</div>
-            <div>Name: {{ randomNameApi.state.name }}</div>
-            <div v-if="randomNameApi.error" class="text-red-600 text-sm">
-                There was an error with the request: {{ randomNameApi.error.message }}
-            </div>
-            <Button :disabled="randomNameApi.isLoading" @click="randomNameApi.execute()"
-                >Get a name!</Button
-            >
+    <main class="flex flex-col gap-2">
+        <h1>vue-tsoa-template</h1>
+        <Divider />
+        <h4>A template for a web project with a vue frontend and a tsoa backend.</h4>
+        <Fieldset legend="Quick Start">
             <div>
-                State of api helper
-                {{ `ready: ${randomNameApi.isReady}; loading: ${randomNameApi.isLoading}` }}
+                <ul class="bullet-list">
+                    <li>Install the <a href="#requirements">requirements</a></li>
+                    <li>
+                        {{ "Populate the " }}<code class="inline-code">.env</code> in frontend and
+                        backend
+                        <ul>
+                            <li>Run this from the repo root to use the example values</li>
+                        </ul>
+                    </li>
+                </ul>
+                <pre
+                    class="code-block"
+                ><code>cp packages/frontend/.env.example packages/frontend/.env.development
+cp packages/backend/.env.example packages/backend/.env</code></pre>
+                <ul class="bullet-list">
+                    <li>
+                        {{ "Run" }} the docker compose script at
+                        <code class="inline-code">docker/local-db/compose.yaml</code>
+                    </li>
+                    <li>
+                        <code class="inline-code">npm i && npm run dev</code> from root and visit
+                        <a href="http://localhost:5173">localhost:5173</a>
+                    </li>
+                    <li>Make changes to the frontend or backend and watch it reload!</li>
+                </ul>
+                <Message class="mt-4" severity="success"
+                    >There's a high chance you've done all of the above since you're already
+                    here!</Message
+                >
             </div>
-        </div>
-
-        <div class="flex flex-col gap-4 text-black">
-            <div class="p-4 bg-blue-300">item 1</div>
-            <div class="p-4 bg-red-300">item 2</div>
-            <div class="p-4 bg-yellow-300">item 3</div>
-            <Button class="bg-blue-400 hover:bg-blue-700 transition-colors">PrimeVue works</Button>
-        </div>
-        <div class="pt-4 flex flex-row gap-2 justify-center">
-            <i class="pi pi-check pi-spin text-sm" />
-            <i class="pi pi-times text-xl" />
-        </div>
-
-        <div
-            class="p-4 flex flex-col gap-4 items-center bg-primary hover:bg-primary-contrast rounded-xl text-muted-color-emphasis border-surface transition-colors"
-        >
-            <div>Let's toggle dark mode</div>
-            <div>Currently: {{ isDarkMode ? "dark mode" : "light mode" }}</div>
-            <Button @click="toggleDarkMode">Change theme</Button>
-        </div>
+        </Fieldset>
+        <Fieldset id="requirements" legend="Requirements">
+            <div>
+                <ul class="bullet-list">
+                    <li>install npm and node (test on npm v12 and node v24)</li>
+                    <li>
+                        {{ "install" }} docker and docker-compose (tested on docker v29 and
+                        docker-compose v5)
+                    </li>
+                    <li>install java (tested on openjdk v26)</li>
+                </ul>
+            </div>
+        </Fieldset>
     </main>
 </template>
+
+<style scoped>
+.bullet-list {
+    list-style: disc inside;
+}
+
+.bullet-list ul {
+    padding-left: 2rem;
+    list-style-type: circle;
+}
+
+a {
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: purple;
+}
+</style>

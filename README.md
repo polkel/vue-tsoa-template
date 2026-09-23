@@ -1,10 +1,10 @@
 # vue-tsoa-template
 
-This is a standard template for starting a web project with a vue frontend and a tsoa backend.
+This is a standard template for a web project with a vue frontend and a tsoa backend.
 
 ## Quick Start
 
-- Install prerequisites (see [prerequisites](#prerequisites))
+- Install requirements (see [requirements](#requirements))
 - Populate the .env in frontend and backend
     - Run this from the repo root to use the example files
 
@@ -18,7 +18,7 @@ cp packages/backend/.env.example packages/backend/.env
 - `npm i && npm run dev` from root and visit `http://localhost:5173'
 - Make changes to the frontend or backend and watch it reload!
 
-## Prerequisites
+## Requirements
 
 - install npm and node (tested on npm v12 and node v24)
 - install docker and docker-compose (tested on docker v29 and docker-compose v5)
