@@ -59,9 +59,9 @@ development workflow simple:
 
 ### Extensibility
 
-What good is a template if it cannot be extended for one's own purposes? Using npm works spaces
-makes it easy to add a new app to this monorepo. The local `shared` package (or any other one) can
-be installed in any other local app for re-use. There are also a many frontend and backend utilities
+What good is a template if it cannot be extended for one's own purposes? Using npm workspaces makes
+it easy to add a new app to this monorepo. The local `shared` package (or any other one) can be
+installed in any other local app for re-use. There are also a many frontend and backend utilities
 included that get users started on the right track, but can be extended if desired (backend errors,
 prisma seeding, etc).
 
@@ -94,8 +94,8 @@ your first time using it.
 
 This template deliberately lacks a testing module. Also, the prisma client is not regenerated upon
 changes to the `schema.prisma` file. This is deliberate because changes to that file is usually done
-in batches and needs to be more intentional. The user will likely pair with with
-`prisma migrate dev` and generate that client that way.
+in batches and needs to be more intentional. The user will likely pair it with `prisma migrate dev`
+and generate that client that way.
 
 ---
 

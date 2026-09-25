@@ -8,7 +8,6 @@ import Fieldset from "primevue/fieldset"
 <template>
     <main class="flex flex-col gap-2">
         <h1>vue-tsoa-template</h1>
-        <Divider />
         <h4>A template for a web project with a vue frontend and a tsoa backend.</h4>
         <Fieldset legend="Quick Start">
             <div>
@@ -60,7 +59,8 @@ cp packages/backend/.env.example packages/backend/.env</code></pre>
 
 <style scoped>
 .bullet-list {
-    list-style: disc inside;
+    list-style: disc outside;
+    padding-left: 2rem;
 }
 
 .bullet-list ul {
