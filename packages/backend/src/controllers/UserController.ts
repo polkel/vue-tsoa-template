@@ -12,6 +12,7 @@ import {
     Tags
 } from "tsoa"
 import { PrismaClient, User } from "../generated/prisma/client"
+import { getDB } from "../lib/db"
 import { ClientHttpError } from "../lib/errors"
 import { logger } from "../lib/logger"
 
@@ -47,7 +48,7 @@ export class UserController extends Controller {
 
     constructor() {
         super()
-        this.prisma = new PrismaClient()
+        this.prisma = getDB()
     }
 
     @Get("")

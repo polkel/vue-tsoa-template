@@ -21,13 +21,18 @@ export function useAsyncCaller<Data, Params extends any[] = any[], Shallow exten
 ) {
     const errorStatusCode: Ref<number | null> = ref(null)
     const error: Ref<Error | null> = ref(null)
-    const useAsyncStateRes = useAsyncState(promise, initialState, {
-        // Set these as the new defaults for useAsyncState
-        // Can be overridden if defined by options
-        resetOnExecute: false,
-        immediate: false,
-        ...options,
-        onError: async (e: unknown): Promise<void> => {
+    const wrappedPromise = async (...args: Params) => {
+        errorStatusCode.value = null
+        error.value = null
+        try {
+            if (typeof promise === "function") {
+                const res = await promise(...args)
+                return res
+            } else {
+                const res = await promise
+                return res
+            }
+        } catch (e) {
             let errorMessage = "An unknown error occurred."
             if (e instanceof ResponseError) {
                 errorStatusCode.value = e.response.status
@@ -38,16 +43,16 @@ export function useAsyncCaller<Data, Params extends any[] = any[], Shallow exten
             } else if (e instanceof Error) {
                 errorMessage = e.message
             }
-            console.error(e)
             error.value = new Error(errorMessage)
-            if (options?.onError) {
-                options.onError(e)
-            }
-        },
-        onSuccess: (_: Data): void => {
-            errorStatusCode.value = null
-            error.value = null
+            throw e
         }
+    }
+    const useAsyncStateRes = useAsyncState(wrappedPromise, initialState, {
+        // Set these as the new defaults for useAsyncState
+        // Can be overridden if defined by options
+        resetOnExecute: false,
+        immediate: false,
+        ...options
     })
     return reactive({ ...useAsyncStateRes, errorStatusCode, error })
 }
