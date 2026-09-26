@@ -1,10 +1,9 @@
-import { TestApi, OtherTestApi, Configuration } from "./client"
+import { UsersApi, Configuration } from "./client"
 
 export type ApiConfig = { baseURL: URL }
 
 export class Api {
-    public test: TestApi
-    public otherTest: OtherTestApi
+    public user: UsersApi
 
     constructor(config: ApiConfig) {
         let basePath: string = config.baseURL.toString()
@@ -13,7 +12,6 @@ export class Api {
         }
         const apiConfig = new Configuration({ basePath })
 
-        this.test = new TestApi(apiConfig)
-        this.otherTest = new OtherTestApi(apiConfig)
+        this.user = new UsersApi(apiConfig)
     }
 }
