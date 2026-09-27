@@ -28,7 +28,7 @@ app.use(
     })
 )
 
-app.use("/docs", ...swaggerUi.serveFiles(swaggerDoc), swaggerUi.setup(swaggerDoc))
+app.use("/api/docs", ...swaggerUi.serveFiles(swaggerDoc), swaggerUi.setup(swaggerDoc))
 
 RegisterRoutes(app)
 
