@@ -1,5 +1,5 @@
 upstream {{APP_NAME}}_upstream {
-    server 127.0.0.1:{{APP_PORT}}
+    server 127.0.0.1:{{APP_PORT}};
 }
 
 server {

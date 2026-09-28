@@ -1,5 +1,6 @@
 import * as z from "zod"
 import * as dotenv from "dotenv"
+import path from "node:path"
 
 const envSchema = z.object({
     API_PORT: z.coerce.number().gte(0).lte(65535),
@@ -13,7 +14,9 @@ const envSchema = z.object({
     DATABASE_URL: z.string().nonempty()
 })
 
-dotenv.config()
+const envPath = path.resolve(__dirname, "../.env")
+
+dotenv.config({ path: envPath })
 
 let _parsedEnv: ReturnType<typeof envSchema.safeParse>["data"] | null = null
 
