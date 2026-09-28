@@ -127,8 +127,8 @@ async function addEditUser() {
         severity: "success",
         life: 3000,
         closable: false,
-        summary: editing ? "Edit success!" : "Add success!",
-        detail: `Sucessfully ${editing ? "edited" : "added"} ${nameField.value}!`
+        summary: editing.value ? "Edit success!" : "Add success!",
+        detail: `Sucessfully ${editing.value ? "edited" : "added"} ${nameField.value}!`
     })
     isAddEditing.value = false
     if (first.value === 0) {
