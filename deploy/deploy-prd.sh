@@ -93,7 +93,7 @@ else
     echo "No certificate record exists; request the certificate first"
     sudo mkdir -p /var/www/certbot
     # Create nginx config in correct directory
-    sed "s/{{SERVER_NAME}}/$SERVER_NAME/g" "$PROJECT_ROOT/nginx-http-only.template" |
+    sed "s/{{SERVER_NAME}}/$SERVER_NAME/g" "$PROJECT_ROOT/deploy/nginx-http-only.template" |
     sudo tee "/etc/nginx/sites-available/$PROJECT_NAME" > /dev/null
     # Create simlink
     sudo ln -sfnT "/etc/nginx/sites-available/$PROJECT_NAME" "/etc/nginx/sites-enabled/$PROJECT_NAME"
