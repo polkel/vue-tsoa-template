@@ -1,0 +1,67 @@
+@import "./base.css";
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+@theme {
+    --spacing-content-max-width: 1440px;
+    --breakpoint-mobile: 720px;
+    --radius-corner: 8px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+#app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-block {
+    margin: 1rem 0;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    border: 1px solid var(--p-surface-300);
+    border-radius: 8px;
+    background: var(--p-surface-400);
+    color: var(--p-text-color);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.inline-code {
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--p-surface-300);
+    border-radius: 4px;
+    background: var(--p-surface-500);
+    color: var(--p-primary-color);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 0.9em;
+}

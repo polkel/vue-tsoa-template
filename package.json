@@ -1,0 +1,36 @@
+{
+    "name": "vue-tsoa-template",
+    "version": "1.0.0",
+    "description": "This is a standard template for starting a web project with a vue frontend and a tsoa backend.",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npm run dev --workspace=@polkel/frontend & npm run dev --workspace=@polkel/backend & wait",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/polkel/vue-tsoa-template.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/polkel/vue-tsoa-template/issues"
+    },
+    "homepage": "https://github.com/polkel/vue-tsoa-template#readme",
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "prettier": "^3.9.6",
+        "typescript": "^6.0.3"
+    },
+    "allowScripts": {
+        "@prisma/engines@6.19.3": true,
+        "prisma@6.19.3": true,
+        "@scarf/scarf": false,
+        "@openapitools/openapi-generator-cli": false,
+        "@prisma/client@6.19.3": true
+    }
+}

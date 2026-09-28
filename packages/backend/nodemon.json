@@ -1,0 +1,6 @@
+{
+    "exec": "tsoa spec-and-routes && bin/client-generator/generate-api-client.sh && npm run build -w @polkel/shared && ts-node src/server.ts",
+    "watch": ["src"],
+    "ignore": ["src/generated/tsoa/*"],
+    "ext": "ts"
+}
