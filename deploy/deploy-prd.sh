@@ -96,7 +96,7 @@ else
     sed "s/{{SERVER_NAME}}/$SERVER_NAME/g" "$PROJECT_ROOT/deploy/nginx-http-only.template" |
     sudo tee "/etc/nginx/sites-available/$PROJECT_NAME" > /dev/null
     # Create simlink
-    sudo ln -sfnT "/etc/nginx/sites-available/$PROJECT_NAME" "/etc/nginx/sites-enabled/$PROJECT_NAME"
+    su/home/polkel/.nvm/versions/node/v24.21.0/bin/nodedo ln -sfnT "/etc/nginx/sites-available/$PROJECT_NAME" "/etc/nginx/sites-enabled/$PROJECT_NAME"
     # Reload nginx
     sudo systemctl reload nginx
     # Run the certbot process
@@ -111,7 +111,7 @@ fi
 sed -e "s/{{APP_NAME}}/$PROJECT_NAME/g" \
 -e "s/{{APP_PORT}}/$APP_PORT/g" \
 -e "s/{{SERVER_NAME}}/$SERVER_NAME/g" \
--e "s/{{WEB_ROOT}}/$WEB_ROOT/g" \
+-e "s#{{WEB_ROOT}}#$WEB_ROOT#g" \
 "$PROJECT_ROOT/deploy/nginx.template" |
 sudo tee "/etc/nginx/sites-available/$PROJECT_NAME" > /dev/null
 sudo ln -sfnT "/etc/nginx/sites-available/$PROJECT_NAME" "/etc/nginx/sites-enabled/$PROJECT_NAME"
